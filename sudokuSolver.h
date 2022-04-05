@@ -42,7 +42,7 @@ class sudokuSolver
         //output board as a printimg in appropiate format
         void printer();
 
-        //check if the value at the given coordinates is possible
+        //check if the value at the given coordinates is possible with the current board
         bool possible(uint8_t x, uint8_t y, uint8_t n);
 
         //function to solve the puzzle from the current boardstate
