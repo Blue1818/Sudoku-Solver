@@ -1,0 +1,54 @@
+phuto code for sudoku solver:
+By Dale Westberg (Bleu)
+
+vars:
+
+board[9][9]
+    9 x 9 array of int
+    represents the boardstate
+    1 to 9
+    0 if space is blank
+
+
+
+functions:
+
+funct printer
+    prints out the 9x9 board to a file or the screen
+
+
+funct possible
+    params: (all int)
+        x: x-cordinate 1-9
+        y: y-cordinate 1-9
+        n: value 1-9 to check the legality of
+
+    returns:
+        bool value
+            True: n is a possible value
+            False: n is not a possible value
+
+    instructions:
+        loop through each int in row x and check if they are equal to n
+            if they are equal return False
+        loop through each int in colum y and check if they are equal to not
+            if they are equal return False
+        check each int in the square the x,y int is located
+            if any are equal return False
+        if non of the above conditions are met, return true
+
+
+funct solver
+    instructions:
+    loop x from 1 to 9 inclusively
+        loop y from 1 to 9 inclusively
+            if board[x][y] = 0 then
+                loop i from 1 to 9
+                    if possible(x,y,i) returns true
+                        set board[x][y] = i
+                        call solver() recursively
+                        if solver returns then backtrack by setting board[x][y] = 0
+                if you loop through all then return
+    if you loop though all possiblies then the puzzles is solved
+    call printer() to print the board
+    ask the user if they want to keep going
