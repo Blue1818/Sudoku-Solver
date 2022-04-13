@@ -56,8 +56,6 @@ sudokuSolver::sudokuSolver(string fileName)
             //get byte at address and assign it to val
             val = mem.get8(head);
 
-            cout << val;
-
             //decode val into 0-9;
             switch( val )
             {
@@ -162,11 +160,12 @@ bool sudokuSolver::isLegal(uint8_t val)
 //output board as a printimg in appropiate format
 void sudokuSolver::printer()
 {
-    for(uint8_t y = 0; y < 10; y++)
+    for(uint8_t y = 0; y < 9; y++)
     {
-        for(uint8_t x = 0; x < 10; x++)
+        for(uint8_t x = 0; x < 9; x++)
         {
-            cout << getCell(x, y);
+            //print cell, cast as a uint32_t
+            cout << (uint32_t)getCell(x, y);
 
             if ((x == 2) || (x == 5))
             {
