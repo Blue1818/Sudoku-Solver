@@ -28,10 +28,15 @@ sudokuSolver::sudokuSolver(string fileName)
 
 
 
-//check if value is legal: 0 <= val > 9
+//check if value is legal: 0 <= val < 10
 bool isLegal(uint8_t val)
 {
-
+    if ((0 <= val) && (val < 10))
+    {
+        return true;
+    }
+    //else return false
+    return false;
 }
 
 
