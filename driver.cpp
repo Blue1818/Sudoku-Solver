@@ -8,6 +8,7 @@ int main()
 {
     sudokuSolver node("samplePuzzles/exOld.ss");
     
+    /* 
     //manual print
     for(uint8_t y = 0x00; y < 0x09; y++)
     {
@@ -18,8 +19,7 @@ int main()
         
         cout << endl;
     }
-
-    cout << endl;
+    cout << endl; */
 
     node.printer();
 
