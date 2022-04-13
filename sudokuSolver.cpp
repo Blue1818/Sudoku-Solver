@@ -70,7 +70,7 @@ void sudokuSolver::printer()
 //check if the value at the given coordinates is possible with the current board
 bool sudokuSolver::possible(uint8_t x, uint8_t y, uint8_t n)
 {
-
+    return false;
 }
 
 //function to solve the puzzle from the current boardstate
