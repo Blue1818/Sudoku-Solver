@@ -26,13 +26,6 @@ sudokuSolver::sudokuSolver(string fileName)
 }
 
 
-//getter
-uint8_t getCell(uint8_t x, uint8_t y)
-{
-    
-}
-
-
 //setter
 uint8_t setCell(uint8_t x, uint8_t y, uint8_t n)
 {
