@@ -37,6 +37,9 @@ class sudokuSolver
         //construct from file
         sudokuSolver(string fileName);
 
+        //set each cell in board to 0xf5;
+        void nullBoard();
+
 
         //getter
         uint8_t getCell(uint8_t x, uint8_t y)
@@ -50,6 +53,8 @@ class sudokuSolver
             this->board[x][y] = n;
         }
 
+        //check if current board state is legal;
+        bool isLegalBoard();
 
         //check if value is legal => 0 <= val < 10
         bool isLegal(uint8_t val);
