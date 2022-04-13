@@ -48,13 +48,18 @@ void sudokuSolver::printer()
         for(uint8_t x = 0; x < 10; x++)
         {
             cout << getCell(x, y);
+
+            if ((x == 2) || (x == 5))
+            {
+                cout << "|";
+            }
         }
 
 
         //if y = 2 or y = 5 then print a horizontal line
         if ((y == 2) || (y == 5))
         {
-            cout << endl << "-----------";
+            cout << endl << "---|---|---";
         }
 
         //newline
