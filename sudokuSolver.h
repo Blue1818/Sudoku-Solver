@@ -7,10 +7,13 @@
 #ifndef SUDOKUSOLVER_H
 #define SUDOKUSOLVER_H
 
+#include <iostream>
 #include <cstdint>  ///standard integer representations
 #include <string>
 
 using std::string;
+using std::cout;
+using std::endl;
 
 
 class sudokuSolver
