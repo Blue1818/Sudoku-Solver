@@ -20,10 +20,21 @@ sudokuSolver::sudokuSolver()
 
 
 //construct from file
+//pretty basic
+//uses old ss file structure:
+//X6X1X4X5X
+//XX83X56XX
+//2XXXXXXX1
+//8XX4X7XX6
+//XX6XXX3XX
+//7XX9X1XX4
+//5XXXXXXX2
+//XX72X69XX
+//X4X5X8X7X
 sudokuSolver::sudokuSolver(string fileName)
 {
     memory mem(0x100);
-    //uint32_t head = 0x00000000;
+    uint32_t head = 0x00000000;
 
     //load puzzle
     //if fail then show error
@@ -34,10 +45,11 @@ sudokuSolver::sudokuSolver(string fileName)
     }
 
     //nested for loop to loop through board
-    for(uint8_t x = 0x00; x < 0x09; x++)
+    for(uint8_t y = 0x00; y < 0x09; y++)
     {
-        for(uint8_t y = 0x00; y < 0x09; y++)
+        for(uint8_t x = 0x00; x < 0x09; x++)
         {
+
             board[x][y] = 0x00;
         }
     }
