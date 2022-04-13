@@ -186,13 +186,60 @@ void sudokuSolver::printer()
 }
 
 //check if the value at the given coordinates is possible with the current board
+// params: (all int)
+//         x: x-cordinate 1-9
+//         y: y-cordinate 1-9
+//         n: value 1-9 to check the legality of
+// returns:
+//         bool value
+//             True: n is a possible value
+//             False: n is not a possible value
 bool sudokuSolver::possible(uint8_t x, uint8_t y, uint8_t n)
 {
-    return false;
+    uint8_t numB = 0x00; //box number
+// instructions:
+//     loop through each int in row x and check if they are equal to n
+//         if they are equal return False
+    for(uint8_t i = 0; i < 9; i++)
+    {
+        if(getCell(i, y) == n)
+        {
+            return false;
+        }
+    }
+
+//     loop through each int in colum y and check if they are equal to not
+//         if they are equal return False
+    for(uint8_t i = 0; i < 9; i++)
+    {
+        if(getCell(x, i) == n)
+        {
+            return false;
+        }
+    }
+
+//     check each int in the square the x,y int is located
+//         if any are equal return False
+    
+//     if non of the above conditions are met, return true
+// return false;
 }
 
 //function to solve the puzzle from the current boardstate
 void sudokuSolver::solver()
 {
+// instructions:
+// loop x from 1 to 9 inclusively
+//     loop y from 1 to 9 inclusively
+//         if board[x][y] = 0 then
+//             loop i from 1 to 9
+//                 if possible(x,y,i) returns true
+//                     set board[x][y] = i
+//                     call solver() recursively
+//                     if solver returns then backtrack by setting board[x][y] = 0
+//             if you loop through all then return
+// if you loop though all possiblies then the puzzles is solved
+// call printer() to print the board
+// ask the user if they want to keep going
 
 }
