@@ -42,7 +42,7 @@ class sudokuSolver
         }
 
 
-        //check if value is legal => 0 <= val > 9
+        //check if value is legal => 0 <= val > 10
         bool isLegal(uint8_t val);
 
         //output board as a printimg in appropiate format
