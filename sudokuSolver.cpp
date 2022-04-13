@@ -196,7 +196,6 @@ void sudokuSolver::printer()
 //             False: n is not a possible value
 bool sudokuSolver::possible(uint8_t x, uint8_t y, uint8_t n)
 {
-    uint8_t numB = 0x00; //box number
 // instructions:
 //     loop through each int in row x and check if they are equal to n
 //         if they are equal return False
@@ -220,9 +219,8 @@ bool sudokuSolver::possible(uint8_t x, uint8_t y, uint8_t n)
 
 //     check each int in the square the x,y int is located
 //         if any are equal return False
-    
 //     if non of the above conditions are met, return true
-// return false;
+    return possibleBox(x, y, val);
 }
 
 //function to solve the puzzle from the current boardstate
@@ -241,5 +239,18 @@ void sudokuSolver::solver()
 // if you loop though all possiblies then the puzzles is solved
 // call printer() to print the board
 // ask the user if they want to keep going
+
+}
+
+
+bool sudokuSolver::possibleBox(uint32_t x, uint32_t y, uint32_t val)
+{
+    uint8_t numB = 0x00; //box number
+    //find numb:
+    // 012
+    // 345
+    // 678
+    numB = ((y / 0x03) * 0x03);
+    numB += (x / 3);
 
 }
