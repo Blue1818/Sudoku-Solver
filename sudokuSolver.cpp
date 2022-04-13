@@ -56,6 +56,8 @@ sudokuSolver::sudokuSolver(string fileName)
             //get byte at address and assign it to val
             val = mem.get8(head);
 
+            cout << val;
+
             //decode val into 0-9;
             switch( val )
             {
@@ -89,7 +91,7 @@ sudokuSolver::sudokuSolver(string fileName)
 
 
                 //its a X, turn it into a 0
-                case 0x58: setCell(x, y , 0x00f9y);
+                case 0x58: setCell(x, y , 0x00);
                 break;
 
                 default: 
@@ -136,7 +138,7 @@ bool sudokuSolver::isLegalBoard()
         {
             if (!isLegal(getCell(x, y)))
             {
-
+                return false;
             }
         }
     }
