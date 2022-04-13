@@ -10,15 +10,16 @@
 #include <iostream>
 #include <cstdint>  ///standard integer representations
 #include <string>
+#include "memory.h"
 
 using std::string;
 using std::cout;
 using std::endl;
 
-struct puzzle
+/* struct puzzle
 {
-    cell[9][9];
-}
+    uint8_t cell[9][9];
+}; */
 
 
 class sudokuSolver
@@ -34,7 +35,7 @@ class sudokuSolver
         sudokuSolver();
 
         //construct from file
-        //sudokuSolver(string fileName);
+        sudokuSolver(string fileName);
 
 
         //getter

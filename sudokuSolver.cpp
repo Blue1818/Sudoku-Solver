@@ -18,13 +18,21 @@ sudokuSolver::sudokuSolver()
     }
 }
 
-/* 
+
 //construct from file
 sudokuSolver::sudokuSolver(string fileName)
 {
+    memory mem(0x100)
+
+    //load puzzle
+    //if fail then show error
+    if (!mem.load_file("samplePuzzles/ex1.ss"))
+    {
+        std::cerr << "can't load file";
+    }
     
 }
- */
+
 
 
 
