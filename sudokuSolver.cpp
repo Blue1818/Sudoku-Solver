@@ -134,7 +134,10 @@ bool sudokuSolver::isLegalBoard()
     {
         for(uint8_t x = 0x00; x < 0x09; x++)
         {
-            if (isLegal(getCell(x, y)))
+            if (!isLegal(getCell(x, y)))
+            {
+
+            }
         }
     }
 
@@ -145,7 +148,7 @@ bool sudokuSolver::isLegalBoard()
 //check if value is legal: 0 <= val < 10
 bool sudokuSolver::isLegal(uint8_t val)
 {
-    if ((0 <= val) && (val < 10))
+    if ((0x00 <= val) && (val < 0x0c))
     {
         return true;
     }
