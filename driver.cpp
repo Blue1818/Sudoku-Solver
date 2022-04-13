@@ -23,7 +23,7 @@ int main()
     
     cout << "Before:" << endl;
     node.printer();
-    cout << endl << "After:";
+    cout << endl << "After:" << endl;
     node.solver();
     node.printer();
     
