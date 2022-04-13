@@ -36,7 +36,10 @@ class sudokuSolver
         }
 
         //setter
-        uint8_t setCell(uint8_t x, uint8_t y, uint8_t n);
+        uint8_t setCell(uint8_t x, uint8_t y, uint8_t n)
+        {
+            this->board[x][y] = n;
+        }
 
 
         //check if value is legal => 0 <= val > 9
