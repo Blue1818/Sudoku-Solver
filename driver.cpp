@@ -6,24 +6,24 @@
 
 int main()
 {
-
-    memory mem(0x100);
-
-    //memory before file
-    //mem.dump();
+    sudokuSolver node("samplePuzzles/exOld.ss");
     
-    //load puzzle
-    //if fail then show error
-    if (!mem.load_file("samplePuzzles/exOld.ss"))
+    //manual print
+    for(uint8_t y = 0x00; y < 0x09; y++)
     {
-        std::cerr << "can't load file";
+        for(uint8_t x = 0x00; x < 0x09; x++)
+        {
+            cout << (uint32_t)node.getCell(x, y);
+        }
+        
+        cout << endl;
     }
 
+    cout << endl;
 
+    node.printer();
 
-    //dump file
-    mem.dump();
-
+    
 
 
 
