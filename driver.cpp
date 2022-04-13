@@ -20,10 +20,15 @@ int main()
         cout << endl;
     }
     cout << endl; */
-
-    node.printer();
-
     
+    cout << "Before:" << endl;
+    node.printer();
+    cout << endl << "After:";
+    node.solver();
+    node.printer();
+    
+    //number of recursive calls
+    cout << endl << "And it only took " << "XXX" << "Calls." << endl;
 
 
 
