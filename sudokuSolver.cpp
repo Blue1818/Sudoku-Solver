@@ -245,12 +245,23 @@ void sudokuSolver::solver()
 
 bool sudokuSolver::possibleBox(uint32_t x, uint32_t y, uint32_t val)
 {
-    uint8_t numB = 0x00; //box number
-    //find numb:
-    // 012
-    // 345
-    // 678
-    numB = ((y / 0x03) * 0x03);
-    numB += (x / 3);
+    //find the corner of box:
+    uint8_t startx = x - (x % 3);
+    uint8_t starty = y - (y % 3);
 
+    //compare val to each cell in that 3x3 box
+    for(uint8_t j = starty; j < (starty + 3); j++)
+    i
+        for(uint8_t i = startx; i < (startx + 3); i++)
+        {
+            if (getCell(i, j) = val)
+            {
+                //if equal return false
+                return false;
+            }
+        }
+    }
+
+    //return true
+    return true;
 }
