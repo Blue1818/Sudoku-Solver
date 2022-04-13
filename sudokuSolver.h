@@ -15,6 +15,11 @@ using std::string;
 using std::cout;
 using std::endl;
 
+struct puzzle
+{
+    cell[9][9];
+}
+
 
 class sudokuSolver
 {
