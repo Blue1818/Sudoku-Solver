@@ -226,19 +226,44 @@ bool sudokuSolver::possible(uint8_t x, uint8_t y, uint8_t n)
 //function to solve the puzzle from the current boardstate
 void sudokuSolver::solver()
 {
+    char a;
 // instructions:
-// loop x from 1 to 9 inclusively
-//     loop y from 1 to 9 inclusively
-//         if board[x][y] = 0 then
-//             loop i from 1 to 9
-//                 if possible(x,y,i) returns true
-//                     set board[x][y] = i
-//                     call solver() recursively
-//                     if solver returns then backtrack by setting board[x][y] = 0
-//             if you loop through all then return
+// loop x from 0 to 8 inclusively
+    for(uint8_t x = 0; x < 9; x++)
+    {
+        //     loop y from 0 to 8 inclusively
+        for(uint8_t y = 0; y < 9; y++)
+        {
+            //if board[x][y] = 0 then
+            if (getCell(x, y) == 0)
+            {
+                // loop i from 1 to 9 inclusively
+                for(uint8_t i = 1; i <= 9; i++)
+                {
+                    //                 if possible(x,y,i) returns true
+                    if (possible(x,y,i))
+                    {
+                        //                     set board[x][y] = i
+                        setCell(x,y,i);
+                        //                     call solver() recursively
+                        solver();
+                        //                     if solver returns then backtrack by setting board[x][y] = 0
+                        setCell(x,y,0x00);
+                    }
+                }
+                //             if you loop through all then return
+                return;
+            }
+        }
+    }
+
 // if you loop though all possiblies then the puzzles is solved
 // call printer() to print the board
+    printer();
 // ask the user if they want to keep going
+    cout << "would you like to keep going?" << endl;
+    std::cin >> a;
+    if (a = 'n') exit(2);
 
 }
 
