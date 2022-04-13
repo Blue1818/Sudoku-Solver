@@ -9,9 +9,9 @@
 //default constructor
 sudokuSolver::sudokuSolver()
 {
-    for(uint8_t x = 0x00; x < 0x09; x++)
+    for(uint8_t y = 0x00; y < 0x09; y++)
     {
-        for(uint8_t y = 0x00; y < 0x09; y++)
+        for(uint8_t x = 0x00; x < 0x09; x++)
         {
             board[x][y] = 0x00;
         }
@@ -22,14 +22,27 @@ sudokuSolver::sudokuSolver()
 //construct from file
 sudokuSolver::sudokuSolver(string fileName)
 {
-    memory mem(0x100)
+    memory mem(0x100);
+    //uint32_t head = 0x00000000;
 
     //load puzzle
     //if fail then show error
-    if (!mem.load_file("samplePuzzles/ex1.ss"))
+    if (!mem.load_file(fileName))
     {
         std::cerr << "can't load file";
+        exit(1);
     }
+
+    //nested for loop to loop through board
+    for(uint8_t x = 0x00; x < 0x09; x++)
+    {
+        for(uint8_t y = 0x00; y < 0x09; y++)
+        {
+            board[x][y] = 0x00;
+        }
+    }
+
+
     
 }
 
