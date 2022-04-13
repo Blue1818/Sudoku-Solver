@@ -220,7 +220,7 @@ bool sudokuSolver::possible(uint8_t x, uint8_t y, uint8_t n)
 //     check each int in the square the x,y int is located
 //         if any are equal return False
 //     if non of the above conditions are met, return true
-    return possibleBox(x, y, val);
+    return possibleBox(x, y, n);
 }
 
 //function to solve the puzzle from the current boardstate
@@ -263,7 +263,10 @@ void sudokuSolver::solver()
 // ask the user if they want to keep going
     cout << "would you like to keep going?" << endl;
     std::cin >> a;
-    if (a = 'n') exit(2);
+    if (a == 'n') 
+    {
+        exit(2);
+    }
 
 }
 
@@ -276,10 +279,10 @@ bool sudokuSolver::possibleBox(uint32_t x, uint32_t y, uint32_t val)
 
     //compare val to each cell in that 3x3 box
     for(uint8_t j = starty; j < (starty + 3); j++)
-    i
+    {
         for(uint8_t i = startx; i < (startx + 3); i++)
         {
-            if (getCell(i, j) = val)
+            if (getCell(i, j) == val)
             {
                 //if equal return false
                 return false;
