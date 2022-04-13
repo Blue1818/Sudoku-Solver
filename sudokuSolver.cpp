@@ -29,7 +29,7 @@ sudokuSolver::sudokuSolver(string fileName)
 
 
 //check if value is legal: 0 <= val < 10
-bool isLegal(uint8_t val)
+bool sudokuSolver::isLegal(uint8_t val)
 {
     if ((0 <= val) && (val < 10))
     {
@@ -41,19 +41,35 @@ bool isLegal(uint8_t val)
 
 
 //output board as a printimg in appropiate format
-void printer()
+void sudokuSolver::printer()
 {
+    for(uint8_t y = 0; y < 10; y++)
+    {
+        for(uint8_t x = 0; x < 10; x++)
+        {
+            cout << getCell(x, y);
+        }
 
+
+        //if y = 2 or y = 5 then print a horizontal line
+        if ((y == 2) || (y == 5))
+        {
+            cout << endl << "-----------";
+        }
+
+        //newline
+        cout << endl;
+    }
 }
 
 //check if the value at the given coordinates is possible with the current board
-bool possible(uint8_t x, uint8_t y, uint8_t n)
+bool sudokuSolver::possible(uint8_t x, uint8_t y, uint8_t n)
 {
 
 }
 
 //function to solve the puzzle from the current boardstate
-void solver()
+void sudokuSolver::solver()
 {
 
 }
