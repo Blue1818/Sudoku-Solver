@@ -28,7 +28,7 @@ sudokuSolver::sudokuSolver(string fileName)
 
 
 
-//check if value is legal => 0 <= val > 9
+//check if value is legal: 0 <= val > 9
 bool isLegal(uint8_t val)
 {
 
