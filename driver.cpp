@@ -1,8 +1,8 @@
 //driver.cpp
 //Dale Westberg (Bleu)
 
-#include <memory.h>
-#include <sudokuSolver.h>
+#include "memory.h"
+#include "sudokuSolver.h"
 
 
 int main()
