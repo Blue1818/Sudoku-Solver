@@ -29,7 +29,7 @@ class sudokuSolver
         sudokuSolver();
 
         //construct from file
-        sudokuSolver(string fileName);
+        //sudokuSolver(string fileName);
 
 
         //getter
@@ -39,7 +39,7 @@ class sudokuSolver
         }
 
         //setter
-        uint8_t setCell(uint8_t x, uint8_t y, uint8_t n)
+        void setCell(uint8_t x, uint8_t y, uint8_t n)
         {
             this->board[x][y] = n;
         }
