@@ -69,7 +69,7 @@ class sudokuSolver
         void solver();
 
         //check if value is in box
-        bool possibleBox(uint32_t x, uint32_t y, uint32_t val)
+        bool possibleBox(uint32_t x, uint32_t y, uint32_t val);
 
 };
    
