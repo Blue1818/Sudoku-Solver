@@ -18,13 +18,13 @@ sudokuSolver::sudokuSolver()
     }
 }
 
-
+/* 
 //construct from file
 sudokuSolver::sudokuSolver(string fileName)
 {
-
+    
 }
-
+ */
 
 
 
