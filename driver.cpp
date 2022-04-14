@@ -6,7 +6,15 @@
 
 int main()
 {
-    sudokuSolver node("samplePuzzles/exOld.ss");
+    string fileName = "samplePuzzles/";
+    string input = "";
+
+    cout << "Name of the file with the puzzle: ";
+    cin >> input;
+
+    fileName.append(input);
+
+    sudokuSolver node(fileName);
     
     /* 
     //manual print
@@ -21,7 +29,7 @@ int main()
     }
     cout << endl; */
     
-    cout << "Before:" << endl;
+    cout << endl << "Before:" << endl;
     node.printer();
     cout << endl << "After:" << endl;
     node.solver();
