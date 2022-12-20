@@ -1,5 +1,8 @@
 # Sudoku-Solver
 A Sudoku Solver written in c++
 
-The project is working but uses classes from my previous projects that it really doesn't need.
-My final steps for the project would be to make it smaller.
+This program takes a unfinished soduku puzzle as input and solves it using a recursive algorithm.
+
+If were to go back and inprove this project I would change the input method.
+Currently, for input, the program uses classes from my previous projects that are more complicated than they to be.
+I would defidently change the input method to make it simpler and smaller.
