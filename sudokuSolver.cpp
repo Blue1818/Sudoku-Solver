@@ -186,13 +186,110 @@ void sudokuSolver::printer()
 }
 
 //check if the value at the given coordinates is possible with the current board
+// params: (all int)
+//         x: x-cordinate 1-9
+//         y: y-cordinate 1-9
+//         n: value 1-9 to check the legality of
+// returns:
+//         bool value
+//             True: n is a possible value
+//             False: n is not a possible value
 bool sudokuSolver::possible(uint8_t x, uint8_t y, uint8_t n)
 {
-    return false;
+// instructions:
+//     loop through each int in row x and check if they are equal to n
+//         if they are equal return False
+    for(uint8_t i = 0; i < 9; i++)
+    {
+        if(getCell(i, y) == n)
+        {
+            return false;
+        }
+    }
+
+//     loop through each int in colum y and check if they are equal to not
+//         if they are equal return False
+    for(uint8_t i = 0; i < 9; i++)
+    {
+        if(getCell(x, i) == n)
+        {
+            return false;
+        }
+    }
+
+//     check each int in the square the x,y int is located
+//         if any are equal return False
+//     if non of the above conditions are met, return true
+    return possibleBox(x, y, n);
 }
 
 //function to solve the puzzle from the current boardstate
 void sudokuSolver::solver()
 {
+    char a;
+// instructions:
+// loop x from 0 to 8 inclusively
+    for(uint8_t x = 0; x < 9; x++)
+    {
+        //     loop y from 0 to 8 inclusively
+        for(uint8_t y = 0; y < 9; y++)
+        {
+            //if board[x][y] = 0 then
+            if (getCell(x, y) == 0)
+            {
+                // loop i from 1 to 9 inclusively
+                for(uint8_t i = 1; i <= 9; i++)
+                {
+                    //                 if possible(x,y,i) returns true
+                    if (possible(x,y,i))
+                    {
+                        //                     set board[x][y] = i
+                        setCell(x,y,i);
+                        //                     call solver() recursively
+                        solver();
+                        //                     if solver returns then backtrack by setting board[x][y] = 0
+                        setCell(x,y,0x00);
+                    }
+                }
+                //             if you loop through all then return
+                return;
+            }
+        }
+    }
 
+// if you loop though all possiblies then the puzzles is solved
+// call printer() to print the board
+    printer();
+// ask the user if they want to keep going
+    cout << "would you like to keep going?" << endl;
+    std::cin >> a;
+    if (a == 'n') 
+    {
+        exit(2);
+    }
+
+}
+
+
+bool sudokuSolver::possibleBox(uint32_t x, uint32_t y, uint32_t val)
+{
+    //find the corner of box:
+    uint8_t startx = x - (x % 3);
+    uint8_t starty = y - (y % 3);
+
+    //compare val to each cell in that 3x3 box
+    for(uint8_t j = starty; j < (starty + 3); j++)
+    {
+        for(uint8_t i = startx; i < (startx + 3); i++)
+        {
+            if (getCell(i, j) == val)
+            {
+                //if equal return false
+                return false;
+            }
+        }
+    }
+
+    //return true
+    return true;
 }

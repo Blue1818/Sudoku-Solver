@@ -11,7 +11,7 @@ g++ -g -ansi -pedantic -Wall -Werror -std=c++14 -c -o sudokuSolver.o sudokuSolve
 
 g++ -g -ansi -pedantic -Wall -Werror -std=c++14 -c -o driver.o driver.cpp
 
-g++ -g -ansi -pedantic -Wall -Werror -std=c++14 -o unitTest driver.o sudokuSolver.o memory.o hex.o
+g++ -g -ansi -pedantic -Wall -Werror -std=c++14 -o sudokuSolver driver.o sudokuSolver.o memory.o hex.o
 
 
 # remove o files
